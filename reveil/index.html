@@ -366,8 +366,40 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-                
+                <!-- Add copied contents from original content.html here -->
+<!--
+  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
 
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Edit button -->
+
+
+<!--
+  Hack: check whether the content contains a h1 headline. If it
+  doesn't, the page title (or respectively site name) is used
+  as the main headline.
+-->
+
+
+<!-- Markdown content -->
 <h1 id="reveil">Réveil</h1>
 <div class="admonition note">
 <p class="admonition-title">Objectif</p>
@@ -389,8 +421,8 @@
         sequence:
         - service: light.turn_on
             data:
-            brightness: 80
-            color_temp: 1000000
+              brightness: 80
+              color_temp: 1000000
             entity_id: light.salle_a_manger
         - service: light.turn_on
             data: {}
@@ -417,6 +449,43 @@
     action:
       - service: script.reveil
 </code></pre></div>
+
+<!-- Source file information -->
+
+
+<!-- Get setting from mkdocs.yml, but allow page-level overrides -->
+
+
+
+<!-- Inject Disqus into current page -->
+
+  <h2 id="__comments">Commentaires</h2>
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function() {
+      this.page.url = "https://lbdx.github.io/reveil/"
+      this.page.identifier =
+        "reveil/" // 
+    }
+
+    /* Set up for the first time */
+    if (typeof DISQUS === "undefined") {
+      var script = document.createElement("script")
+      script.async = true
+      script.src = "https://vieuxcodeur.disqus.com/embed.js"
+      script.setAttribute("data-timestamp", Date.now())
+
+      /* Inject script tag */
+      document.body.appendChild(script)
+
+    /* Set up on navigation (instant loading) */
+    } else {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      })
+    }
+  </script>
 
               
             </article>
