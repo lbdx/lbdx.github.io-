@@ -295,6 +295,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh-login-notification/" class="md-nav__link">
+        Notification de connexion
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -415,39 +430,39 @@
 <p>J'ai utilisé l'intégration <a href="https://www.home-assistant.io/integrations/smartthings/">Home Assistant/SmartThings</a> pour contourner le problème. La solution est loin d'être idéale puisqu'il faut passer par un serveur distant pour effectuer une action sur une ampoule locale. Cela pose des problèmes de confidentialité, d'indépendance vis à vis d'un service externe (qui pourrait s'arrêter ou devenir payant), mais aussi par rapport à la latence que cela peut induire. </p>
 <h3 id="script-reveil">Script réveil</h3>
 <p>Permet d'allumer les ampoules et de régler puissance et température.</p>
-<div class="highlight"><pre><span></span><code>scripts:
-    reveil:
-        alias: reveil
-        sequence:
-        - service: light.turn_on
-            data:
-              brightness: 80
-              color_temp: 1000000
-            entity_id: light.salle_a_manger
-        - service: light.turn_on
-            data: {}
-            entity_id: light.salon
-        mode: single
-        icon: mdi:alarm
+<div class="highlight"><pre><span></span><code><span class="nt">scripts</span><span class="p">:</span>
+    <span class="nt">reveil</span><span class="p">:</span>
+        <span class="nt">alias</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">reveil</span>
+        <span class="nt">sequence</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">light.turn_on</span>
+            <span class="l l-Scalar l-Scalar-Plain">data</span><span class="p p-Indicator">:</span>
+              <span class="nt">brightness</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
+              <span class="nt">color_temp</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000000</span>
+          <span class=" -Error">  </span><span class="nt">entity_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">light.salle_a_manger</span>
+        <span class="p p-Indicator">-</span> <span class="nt">service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">light.turn_on</span>
+            <span class="l l-Scalar l-Scalar-Plain">data</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{}</span>
+            <span class="nt">entity_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">light.salon</span>
+        <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">single</span>
+        <span class="nt">icon</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mdi:alarm</span>
 </code></pre></div>
 <h3 id="automation">Automation</h3>
 <p>L'automation se base sur l'heure  de la prochaine alarme remontée par l'application mobile  : 
 <em>sensor.pixel_2_xl_next_alarm</em>.</p>
 <p>Le script <em>reveil</em> est appelé quand l'heure de reveil est atteinte si le mode vacance n'a pas été activé.</p>
-<div class="highlight"><pre><span></span><code>automation:
-  - id: lumierereveil
-    alias: allumer lumières au réveil
-    trigger:
-      - platform: template
-        value_template: &gt;
-         {{now().strftime(&quot;%a %h %d %H:%M %Z %Y&quot;) == (((state_attr(&#39;sensor.pixel_2_xl_next_alarm&#39;, &#39;Time in Milliseconds&#39;) | int / 1000) + 0*60 ) | timestamp_custom(&#39;%a %h %d %H:%M %Z %Y&#39;))}}
-    condition:
-      - condition: state
-        entity_id: input_boolean.mode_vacance
-        state: &#39;off&#39;
+<div class="highlight"><pre><span></span><code><span class="nt">automation</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">lumierereveil</span>
+    <span class="nt">alias</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">allumer lumières au réveil</span>
+    <span class="nt">trigger</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">template</span>
+        <span class="nt">value_template</span><span class="p">:</span> <span class="p p-Indicator">&gt;</span>
+         <span class="no">{{now().strftime(&quot;%a %h %d %H:%M %Z %Y&quot;) == (((state_attr(&#39;sensor.pixel_2_xl_next_alarm&#39;, &#39;Time in Milliseconds&#39;) | int / 1000) + 0*60 ) | timestamp_custom(&#39;%a %h %d %H:%M %Z %Y&#39;))}}</span>
+    <span class="nt">condition</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">condition</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">state</span>
+        <span class="nt">entity_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">input_boolean.mode_vacance</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="s">&#39;off&#39;</span>
 
-    action:
-      - service: script.reveil
+    <span class="nt">action</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">script.reveil</span>
 </code></pre></div>
 
 <!-- Source file information -->
@@ -513,6 +528,21 @@
           </div>
         </a>
       
+      
+        
+        <a href="../ssh-login-notification/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Notification de connexion" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              Notification de connexion
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
