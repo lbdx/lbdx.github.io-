@@ -529,15 +529,14 @@
   <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="s">&#39;rappelArrosage&#39;</span>
     <span class="nt">alias</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rappel arrosage Bonsai</span>
     <span class="nt">trigger</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">template</span>
-        <span class="nt">value_template</span><span class="p">:</span> <span class="p p-Indicator">&gt;</span>
-         <span class="no">{{ now().strftime(&#39;%Y-%m-%d&#39;) &gt; states(&#39;input_datetime.date_next_arrosage&#39;) }}</span>
+      <span class="p p-Indicator">-</span> <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">time</span>
+        <span class="nt">at</span><span class="p">:</span> <span class="s">&quot;17:00:00&quot;</span>
     <span class="nt">condition</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="nt">condition</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">state</span>
         <span class="nt">entity_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">input_boolean.mode_vacance</span>
         <span class="nt">state</span><span class="p">:</span> <span class="s">&#39;off&#39;</span>
-      <span class="p p-Indicator">-</span> <span class="nt">condition</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">time</span> 
-        <span class="nt">after</span><span class="p">:</span> <span class="s">&quot;17:00:00&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="nt">condition</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">template</span>
+        <span class="nt">value_template</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">states(&#39;sensor.date&#39;)</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">states(&#39;input_datetime.date_next_arrosage&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="nt">action</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="nt">service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">notify.mobile_app_pixel_2_xl</span>
         <span class="nt">data</span><span class="p">:</span>
