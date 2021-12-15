@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://lbdx.github.io/bonsai/">
+        <link rel="canonical" href="https://lbdx.github.io/02-ssh-login-notification/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.4">
     
     
       
-        <title>Arrosage - Au vieux codeur</title>
+        <title>Notification de connexion - Au vieux codeur</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#arrosage" class="md-skip">
+        <a href="#notification-de-connexion" class="md-skip">
           Aller au contenu
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Arrosage
+              Notification de connexion
             
           </span>
         </div>
@@ -218,6 +218,21 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../01-reveil/" class="md-nav__link">
+        Réveil
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -230,12 +245,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Arrosage
+          Notification de connexion
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Arrosage
+        Notification de connexion
       </a>
       
         
@@ -269,42 +284,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#parametrage-du-delai-entre-deux-arrosages" class="md-nav__link">
-    Paramétrage du délai entre deux arrosages
+  <a href="#sshrc" class="md-nav__link">
+    sshrc
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#date-dernierprochain-arrosage" class="md-nav__link">
-    Date dernier/prochain arrosage
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lecture-du-badge-nfc" class="md-nav__link">
-    Lecture du badge NFC
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#notification" class="md-nav__link">
-    Notification
+  <a href="#traitement-du-webhook" class="md-nav__link">
+    Traitement du WEBHOOK
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interface" class="md-nav__link">
-    Interface
-  </a>
   
 </li>
       
@@ -324,8 +318,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../reveil/" class="md-nav__link">
-        Réveil
+      <a href="../03-bonsai/" class="md-nav__link">
+        Arrosage
       </a>
     </li>
   
@@ -339,8 +333,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../ssh-login-notification/" class="md-nav__link">
-        Notification de connexion
+      <a href="../04-trajet/" class="md-nav__link">
+        Trajet domicile/travail
       </a>
     </li>
   
@@ -388,42 +382,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#parametrage-du-delai-entre-deux-arrosages" class="md-nav__link">
-    Paramétrage du délai entre deux arrosages
+  <a href="#sshrc" class="md-nav__link">
+    sshrc
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#date-dernierprochain-arrosage" class="md-nav__link">
-    Date dernier/prochain arrosage
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lecture-du-badge-nfc" class="md-nav__link">
-    Lecture du badge NFC
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#notification" class="md-nav__link">
-    Notification
+  <a href="#traitement-du-webhook" class="md-nav__link">
+    Traitement du WEBHOOK
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interface" class="md-nav__link">
-    Interface
-  </a>
   
 </li>
       
@@ -472,95 +445,63 @@
 
 
 <!-- Markdown content -->
-<h1 id="arrosage">Arrosage</h1>
+<h1 id="notification-de-connexion">Notification de connexion</h1>
 <div class="admonition note">
 <p class="admonition-title">Objectif</p>
-<p>Se rappeler de la date du dernier arrosage de mon bonsai en scannant un tag NFC présent dans la soucoupe et envoyer une notification de rappel quand la date de prochain arrosage est atteinte.</p>
+<p>Envoyer une notification lors d'une connexion en ssh sur mon serveur NAS.</p>
 </div>
 <h2 id="materiel-utilise">Matériel utilisé</h2>
 <ul>
-<li>1 <a href="https://www.home-assistant.io/integrations/tag/">badge NFC</a> pouvant être écrit par Home Assistant</li>
+<li>1 serveur NAS permettant la connexion distante par ssh</li>
 <li>1 téléphone portable sur lequel est installée l'application mobile <a href="https://www.home-assistant.io/integrations/mobile_app/">Home assistant</a> pour recevoir la notification.</li>
 </ul>
 <h2 id="mise-en-oeuvre">Mise en oeuvre</h2>
-<h3 id="parametrage-du-delai-entre-deux-arrosages">Paramétrage du délai entre deux arrosages</h3>
-<div class="highlight"><pre><span></span><code><span class="nt">input_number</span><span class="p">:</span>
-  <span class="nt">interval_arrosage</span><span class="p">:</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Interval en jour entre 2 arrosages</span> 
-    <span class="nt">initial</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
-    <span class="nt">min</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-    <span class="nt">max</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">7</span>
-    <span class="nt">step</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-    <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">box</span>
+<p>Lors d'une connexion ssh les commandes présentes dans le fichier <em>/etc/ssh/sshrc</em> sont exécutées.
+En ajoutant les lignes de commandes suivantes il est possible d'appeler un WEBHOOK au niveau de Home Assistant.</p>
+<h3 id="sshrc">sshrc</h3>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="nv">ip</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$SSH_CONNECTION</span><span class="s2">&quot;</span> <span class="p">|</span> cut -d <span class="s2">&quot; &quot;</span> -f <span class="m">1</span><span class="k">)</span>
+<span class="nv">hs</span><span class="o">=</span><span class="k">$(</span>hostname<span class="k">)</span>
+
+<span class="nv">hostIP</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>ip address show dev eth0 <span class="p">|</span> grep <span class="s2">&quot;inet &quot;</span> <span class="p">|</span> head --lines<span class="o">=</span><span class="m">1</span> <span class="p">|</span> cut --delimiter<span class="o">=</span><span class="s1">&#39; &#39;</span> --fields<span class="o">=</span><span class="m">6</span> <span class="p">|</span> cut --delimiter<span class="o">=</span><span class="s1">&#39;/&#39;</span> --fields<span class="o">=</span><span class="m">1</span><span class="k">)</span><span class="s2">&quot;</span>
+
+logger -t ssh-wrapper <span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2">&quot;</span> login from <span class="s2">&quot;</span><span class="nv">$ip</span><span class="s2">&quot;</span>
+
+curl --header <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+ --request POST <span class="se">\</span>
+ --data <span class="se">\</span>
+ <span class="s1">&#39;{&quot;topic&quot;: &quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$hs</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;,</span>
+<span class="s1"> &quot;host&quot;: &quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$hs</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;,</span>
+<span class="s1"> &quot;hostIP&quot;: &quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$hostIP</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;,</span>
+<span class="s1"> &quot;user&quot;: &quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;,</span>
+<span class="s1"> &quot;from&quot;: &quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$ip</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;,</span>
+<span class="s1"> &quot;message&quot;: &quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2">@</span><span class="nv">$hs</span><span class="s2"> just logged in from </span><span class="nv">$ip</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;}&#39;</span> <span class="se">\</span>
+ http://localhost:8123/api/webhook/MY-SSH-WEBHOOK
 </code></pre></div>
-<h3 id="date-dernierprochain-arrosage">Date dernier/prochain arrosage</h3>
-<div class="highlight"><pre><span></span><code><span class="nt">input_datetime</span><span class="p">:</span>
-  <span class="nt">date_arrosage</span><span class="p">:</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">date dernier arrosage</span>
-    <span class="nt">has_date</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">has_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-  <span class="nt">date_next_arrosage</span><span class="p">:</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">date prochain arrosage</span>
-    <span class="nt">has_date</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">has_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-</code></pre></div>
-<h3 id="lecture-du-badge-nfc">Lecture du badge NFC</h3>
+<p>La dernière ligne doit être adaptée avec l'adresse de votre instance Home Assistant. Dans mon cas, elle est située sur la même machine.</p>
+<h3 id="traitement-du-webhook">Traitement du WEBHOOK</h3>
+<p>A la réception du WEBHOOK, le <em>sensor</em> ssh_login prend la valeur du message envoyé (bob@nas just logged in from 192.168.1.2 par exemple).</p>
+<p>Au changement de valeur du <em>sensor</em> ssh_login, le service de notification est appelé avec le message stocké sur le sensor.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">automation</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="s">&#39;update_date_arrosage&#39;</span>
-    <span class="nt">alias</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">La balise bonsai est analysée</span>
-    <span class="nt">description</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+  <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ssh_login_notify</span>
+    <span class="nt">alias</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">notify nas ssh login</span>
     <span class="nt">trigger</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tag</span>
-      <span class="nt">tag_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2fbab09d-6347-4042-8165-1a35c0877a7f</span>
-    <span class="nt">condition</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+      <span class="p p-Indicator">-</span> <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">state</span>
+        <span class="nt">entity_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sensor.ssh_login</span>
     <span class="nt">action</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">input_datetime.set_datetime</span>
+      <span class="nt">service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">notify.mobile_app_pixel_2_xl</span>
       <span class="nt">data</span><span class="p">:</span>
-        <span class="nt">datetime</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">now().strftime(&#39;%Y-%m-%d&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
-      <span class="nt">entity_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">input_datetime.date_arrosage</span>
-    <span class="p p-Indicator">-</span> <span class="nt">service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">input_datetime.set_datetime</span>
-      <span class="nt">data</span><span class="p">:</span>
-        <span class="nt">datetime</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">(now()</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">timedelta(days=states(&#39;input_number.interval_arrosage&#39;)|</span><span class="nv"> </span><span class="s">int</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">1)).strftime(&#39;%Y-%m-%d&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
-      <span class="nt">entity_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">input_datetime.date_next_arrosage</span>
-    <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">single</span>
+        <span class="nt">message</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">states.sensor.ssh_login.state</span><span class="nv"> </span><span class="s">}}&#39;</span>
+
+<span class="nt">template</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">trigger</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">webhook</span>
+        <span class="nt">webhook_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MY-SSH-WEBHOOK</span>
+    <span class="nt">sensor</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;ssh_login&quot;</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">trigger.json.message</span><span class="nv"> </span><span class="s">}}&quot;</span>
 </code></pre></div>
-<h3 id="notification">Notification</h3>
-<div class="highlight"><pre><span></span><code><span class="nt">automation</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="s">&#39;rappelArrosage&#39;</span>
-    <span class="nt">alias</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rappel arrosage Bonsai</span>
-    <span class="nt">trigger</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">time</span>
-        <span class="nt">at</span><span class="p">:</span> <span class="s">&quot;17:00:00&quot;</span>
-    <span class="nt">condition</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">condition</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">state</span>
-        <span class="nt">entity_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">input_boolean.mode_vacance</span>
-        <span class="nt">state</span><span class="p">:</span> <span class="s">&#39;off&#39;</span>
-      <span class="p p-Indicator">-</span> <span class="nt">condition</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">template</span>
-        <span class="nt">value_template</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">states(&#39;sensor.date&#39;)</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">states(&#39;input_datetime.date_next_arrosage&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
-    <span class="nt">action</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">notify.mobile_app_pixel_2_xl</span>
-        <span class="nt">data</span><span class="p">:</span>
-          <span class="nt">message</span><span class="p">:</span> <span class="s">&#39;Il</span><span class="nv"> </span><span class="s">est</span><span class="nv"> </span><span class="s">temps</span><span class="nv"> </span><span class="s">d&#39;</span><span class="l l-Scalar l-Scalar-Plain">arroser le Bonsai&#39;</span>
-      <span class="p p-Indicator">-</span> <span class="nt">service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">input_datetime.set_datetime</span>
-        <span class="nt">data</span><span class="p">:</span>
-          <span class="nt">datetime</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">(now()</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">timedelta(days=1)).strftime(&#39;%Y-%m-%d&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
-        <span class="nt">entity_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">input_datetime.date_next_arrosage</span>
-</code></pre></div>
-<h2 id="interface">Interface</h2>
-<div class="highlight"><pre><span></span><code><span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">picture-glance</span>
-<span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Carmona microphylla</span>
-<span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">./local/bonsai.jpg</span>
-<span class="nt">entities</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">entity</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">input_datetime.date_arrosage</span>
-  <span class="p p-Indicator">-</span> <span class="nt">entity</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">input_datetime.date_next_arrosage</span>
-  <span class="p p-Indicator">-</span> <span class="nt">entity</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">input_number.interval_arrosage</span>
-<span class="nt">entity</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">input_datetime.date_arrosage</span>
-</code></pre></div>
-<figure>
-<p><img alt="bonsai" src="../img/bonsai-widget.png" width="400" />
-  </p>
-<figcaption>Vue du widget dans l'application</figcaption>
-</figure>
 
 <!-- Source file information -->
 
@@ -575,9 +516,9 @@
   <div id="disqus_thread"></div>
   <script>
     var disqus_config = function() {
-      this.page.url = "https://lbdx.github.io/bonsai/"
+      this.page.url = "https://lbdx.github.io/02-ssh-login-notification/"
       this.page.identifier =
-        "bonsai/" // 
+        "02-ssh-login-notification/" // 
     }
 
     /* Set up for the first time */
@@ -611,7 +552,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Pied de page">
       
         
-        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Précédent: Home assistant" rel="prev">
+        <a href="../01-reveil/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Réveil" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -620,20 +561,20 @@
               <span class="md-footer__direction">
                 Précédent
               </span>
-              Home assistant
+              Réveil
             </div>
           </div>
         </a>
       
       
         
-        <a href="../reveil/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Réveil" rel="next">
+        <a href="../03-bonsai/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Arrosage" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Suivant
               </span>
-              Réveil
+              Arrosage
             </div>
           </div>
           <div class="md-footer__button md-icon">

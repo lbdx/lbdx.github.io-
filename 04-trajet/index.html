@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://lbdx.github.io/ssh-login-notification/">
+        <link rel="canonical" href="https://lbdx.github.io/04-trajet/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.4">
     
     
       
-        <title>Notification de connexion - Au vieux codeur</title>
+        <title>Trajet domicile/travail - Au vieux codeur</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#notification-de-connexion" class="md-skip">
+        <a href="#trajet-domiciletravail" class="md-skip">
           Aller au contenu
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Notification de connexion
+              Trajet domicile/travail
             
           </span>
         </div>
@@ -220,8 +220,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../bonsai/" class="md-nav__link">
-        Arrosage
+      <a href="../01-reveil/" class="md-nav__link">
+        Réveil
       </a>
     </li>
   
@@ -235,8 +235,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../reveil/" class="md-nav__link">
-        Réveil
+      <a href="../02-ssh-login-notification/" class="md-nav__link">
+        Notification de connexion
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-bonsai/" class="md-nav__link">
+        Arrosage
       </a>
     </li>
   
@@ -260,12 +275,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Notification de connexion
+          Trajet domicile/travail
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Notification de connexion
+        Trajet domicile/travail
       </a>
       
         
@@ -299,15 +314,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sshrc" class="md-nav__link">
-    sshrc
+  <a href="#estimation-du-temps-de-trajet-retour" class="md-nav__link">
+    Estimation du temps de trajet retour
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#traitement-du-webhook" class="md-nav__link">
-    Traitement du WEBHOOK
+  <a href="#notification-arrivee-travail" class="md-nav__link">
+    Notification arrivée travail
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notification-retour-a-la-maison" class="md-nav__link">
+    Notification retour à la maison
   </a>
   
 </li>
@@ -367,15 +389,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sshrc" class="md-nav__link">
-    sshrc
+  <a href="#estimation-du-temps-de-trajet-retour" class="md-nav__link">
+    Estimation du temps de trajet retour
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#traitement-du-webhook" class="md-nav__link">
-    Traitement du WEBHOOK
+  <a href="#notification-arrivee-travail" class="md-nav__link">
+    Notification arrivée travail
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notification-retour-a-la-maison" class="md-nav__link">
+    Notification retour à la maison
   </a>
   
 </li>
@@ -430,62 +459,78 @@
 
 
 <!-- Markdown content -->
-<h1 id="notification-de-connexion">Notification de connexion</h1>
+<h1 id="trajet-domiciletravail">Trajet domicile/travail</h1>
 <div class="admonition note">
-<p class="admonition-title">Objectif</p>
-<p>Envoyer une notification lors d'une connexion en ssh sur mon serveur NAS.</p>
+<p class="admonition-title">Objectif : Es-tu bien arrivé à destination, à quel heure rentres-tu ?</p>
+<p>Envoyer une notification à l'arrivée sur mon lieu de travail et une autre lors du retour au domicile avec indication du temps de trajet estimé.</p>
 </div>
 <h2 id="materiel-utilise">Matériel utilisé</h2>
 <ul>
-<li>1 serveur NAS permettant la connexion distante par ssh</li>
-<li>1 téléphone portable sur lequel est installée l'application mobile <a href="https://www.home-assistant.io/integrations/mobile_app/">Home assistant</a> pour recevoir la notification.</li>
+<li>2 téléphones portables sur lesquels sont installée l'application mobile <a href="https://www.home-assistant.io/integrations/mobile_app/">Home assistant</a> pour recevoir la notification et partager sa localisation.</li>
 </ul>
 <h2 id="mise-en-oeuvre">Mise en oeuvre</h2>
-<p>Lors d'une connexion ssh les commandes présentes dans le fichier <em>/etc/ssh/sshrc</em> sont exécutées.
-En ajoutant les lignes de commandes suivantes il est possible d'appeler un WEBHOOK au niveau de Home Assistant.</p>
-<h3 id="sshrc">sshrc</h3>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-
-<span class="nv">ip</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$SSH_CONNECTION</span><span class="s2">&quot;</span> <span class="p">|</span> cut -d <span class="s2">&quot; &quot;</span> -f <span class="m">1</span><span class="k">)</span>
-<span class="nv">hs</span><span class="o">=</span><span class="k">$(</span>hostname<span class="k">)</span>
-
-<span class="nv">hostIP</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>ip address show dev eth0 <span class="p">|</span> grep <span class="s2">&quot;inet &quot;</span> <span class="p">|</span> head --lines<span class="o">=</span><span class="m">1</span> <span class="p">|</span> cut --delimiter<span class="o">=</span><span class="s1">&#39; &#39;</span> --fields<span class="o">=</span><span class="m">6</span> <span class="p">|</span> cut --delimiter<span class="o">=</span><span class="s1">&#39;/&#39;</span> --fields<span class="o">=</span><span class="m">1</span><span class="k">)</span><span class="s2">&quot;</span>
-
-logger -t ssh-wrapper <span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2">&quot;</span> login from <span class="s2">&quot;</span><span class="nv">$ip</span><span class="s2">&quot;</span>
-
-curl --header <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
- --request POST <span class="se">\</span>
- --data <span class="se">\</span>
- <span class="s1">&#39;{&quot;topic&quot;: &quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$hs</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;,</span>
-<span class="s1"> &quot;host&quot;: &quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$hs</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;,</span>
-<span class="s1"> &quot;hostIP&quot;: &quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$hostIP</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;,</span>
-<span class="s1"> &quot;user&quot;: &quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;,</span>
-<span class="s1"> &quot;from&quot;: &quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$ip</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;,</span>
-<span class="s1"> &quot;message&quot;: &quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2">@</span><span class="nv">$hs</span><span class="s2"> just logged in from </span><span class="nv">$ip</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;}&#39;</span> <span class="se">\</span>
- http://localhost:8123/api/webhook/MY-SSH-WEBHOOK
+<p>2 <a href="https://www.home-assistant.io/integrations/zone/">zones</a> définies au niveau de Home assistant :</p>
+<ul>
+<li>home : adresse du domicile</li>
+<li>travail : adresse du lieu de travail</li>
+</ul>
+<h3 id="estimation-du-temps-de-trajet-retour">Estimation du temps de trajet retour</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">sensor</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">waze_travel_time</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Vieux</span><span class="nv"> </span><span class="s">codeur</span><span class="nv"> </span><span class="s">ETT</span><span class="nv"> </span><span class="s">Home&quot;</span>
+    <span class="nt">origin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">device_tracker.pixel_2_xl_2</span>
+    <span class="nt">destination</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zone.home</span>
+    <span class="nt">region</span><span class="p">:</span> <span class="s">&#39;EU&#39;</span>
 </code></pre></div>
-<p>La dernière ligne doit être adaptée avec l'adresse de votre instance Home Assistant. Dans mon cas, elle est située sur la même machine.</p>
-<h3 id="traitement-du-webhook">Traitement du WEBHOOK</h3>
-<p>A la réception du WEBHOOK, le <em>sensor</em> ssh_login prend la valeur du message envoyé (bob@nas just logged in from 192.168.1.2 par exemple).</p>
-<p>Au changement de valeur du <em>sensor</em> ssh_login, le service de notification est appelé avec le message stocké sur le sensor.</p>
+<h3 id="notification-arrivee-travail">Notification arrivée travail</h3>
 <div class="highlight"><pre><span></span><code><span class="nt">automation</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ssh_login_notify</span>
-    <span class="nt">alias</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">notify nas ssh login</span>
+  <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vieux_codeur_travail</span>
+    <span class="nt">alias</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Vieux codeur est arrivé à Travail</span>
+    <span class="nt">initial_state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="nt">trigger</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">state</span>
-        <span class="nt">entity_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sensor.ssh_login</span>
+    <span class="p p-Indicator">-</span> <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zone</span>
+      <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enter</span>
+      <span class="nt">zone</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zone.travail</span>
+      <span class="nt">entity_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">person.vieuxcodeur</span>
+    <span class="nt">condition</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">condition</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">time</span>
+        <span class="nt">after</span><span class="p">:</span> <span class="s">&quot;07:30:00&quot;</span>
+        <span class="nt">before</span><span class="p">:</span> <span class="s">&quot;09:30:00&quot;</span>
+        <span class="nt">weekday</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mon</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">tue</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">wed</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">thu</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">fri</span>
     <span class="nt">action</span><span class="p">:</span>
-      <span class="nt">service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">notify.mobile_app_pixel_2_xl</span>
-      <span class="nt">data</span><span class="p">:</span>
-        <span class="nt">message</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">states.sensor.ssh_login.state</span><span class="nv"> </span><span class="s">}}&#39;</span>
-
-<span class="nt">template</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">trigger</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">webhook</span>
-        <span class="nt">webhook_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MY-SSH-WEBHOOK</span>
-    <span class="nt">sensor</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;ssh_login&quot;</span>
-        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">trigger.json.message</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="nt">service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">notify.mobile_vieillecodeuse</span>
+        <span class="nt">data</span><span class="p">:</span>
+          <span class="nt">message</span><span class="p">:</span> <span class="s">&#39;Vieux</span><span class="nv"> </span><span class="s">codeur</span><span class="nv"> </span><span class="s">est</span><span class="nv"> </span><span class="s">arrivé</span><span class="nv"> </span><span class="s">à</span><span class="nv"> </span><span class="s">Travail&#39;</span>
+</code></pre></div>
+<h3 id="notification-retour-a-la-maison">Notification retour à la maison</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">automation</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vieuxcodeur_retour</span>
+    <span class="nt">alias</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Vieux codeur part de Travail</span>
+    <span class="nt">initial_state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">trigger</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zone</span>
+      <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">leave</span>
+      <span class="nt">zone</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">zone.travail</span>
+      <span class="nt">entity_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">person.mobile_app_pixel_2_xl</span>
+    <span class="nt">condition</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">condition</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">time</span>
+        <span class="nt">after</span><span class="p">:</span> <span class="s">&quot;18:00:00&quot;</span>
+        <span class="nt">before</span><span class="p">:</span> <span class="s">&quot;21:00:00&quot;</span>
+        <span class="nt">weekday</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mon</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">tue</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">wed</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">thu</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">fri</span>
+    <span class="nt">action</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">notify.mobile_vieillecodeuse</span>
+        <span class="nt">data</span><span class="p">:</span>
+          <span class="nt">message</span><span class="p">:</span> <span class="s">&quot;Vieux</span><span class="nv"> </span><span class="s">codeur</span><span class="nv"> </span><span class="s">rentre</span><span class="nv"> </span><span class="s">du</span><span class="nv"> </span><span class="s">travail,</span><span class="nv"> </span><span class="s">arrivée</span><span class="nv"> </span><span class="s">dans</span><span class="nv"> </span><span class="s">{{states.sensor.vieux_codeur_ett_home.state|round}</span><span class="nv"> </span><span class="s">minutes.&quot;</span>
 </code></pre></div>
 
 <!-- Source file information -->
@@ -501,9 +546,9 @@ curl --header <span class="s2">&quot;Content-Type: application/json&quot;</span>
   <div id="disqus_thread"></div>
   <script>
     var disqus_config = function() {
-      this.page.url = "https://lbdx.github.io/ssh-login-notification/"
+      this.page.url = "https://lbdx.github.io/04-trajet/"
       this.page.identifier =
-        "ssh-login-notification/" // 
+        "04-trajet/" // 
     }
 
     /* Set up for the first time */
@@ -537,7 +582,7 @@ curl --header <span class="s2">&quot;Content-Type: application/json&quot;</span>
     <nav class="md-footer__inner md-grid" aria-label="Pied de page">
       
         
-        <a href="../reveil/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Réveil" rel="prev">
+        <a href="../03-bonsai/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Arrosage" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -546,7 +591,7 @@ curl --header <span class="s2">&quot;Content-Type: application/json&quot;</span>
               <span class="md-footer__direction">
                 Précédent
               </span>
-              Réveil
+              Arrosage
             </div>
           </div>
         </a>
