@@ -2,27 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://lbdx.github.io/</loc>
-         <lastmod>2021-12-15</lastmod>
+         <lastmod>2021-12-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lbdx.github.io/01-reveil/</loc>
-         <lastmod>2021-12-15</lastmod>
+         <lastmod>2021-12-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lbdx.github.io/02-ssh-login-notification/</loc>
-         <lastmod>2021-12-15</lastmod>
+         <lastmod>2021-12-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lbdx.github.io/03-bonsai/</loc>
-         <lastmod>2021-12-15</lastmod>
+         <lastmod>2021-12-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lbdx.github.io/04-trajet/</loc>
-         <lastmod>2021-12-15</lastmod>
+         <lastmod>2021-12-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lbdx.github.io/05-tv/</loc>
+         <lastmod>2021-12-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lbdx.github.io/06-mode-nuit/</loc>
+         <lastmod>2021-12-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
