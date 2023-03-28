@@ -8,25 +8,27 @@
       
       
       
-        <link rel="canonical" href="https://lbdx.github.io/">
+        <link rel="canonical" href="https://lbdx.github.io/02-ssh-login-notification/">
       
       
+        <link rel="prev" href="../01-reveil/">
       
-        <link rel="next" href="01-reveil/">
       
-      <link rel="icon" href="img/vieuxcodeuricon.png">
+        <link rel="next" href="../03-bonsai/">
+      
+      <link rel="icon" href="../img/vieuxcodeuricon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
     
     
       
-        <title>Au vieux codeur</title>
+        <title>Notification de connexion - Au vieux codeur</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.240905d7.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.240905d7.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -42,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -71,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#home-assistant" class="md-skip">
+        <a href="#notification-de-connexion" class="md-skip">
           Aller au contenu
         </a>
       
@@ -87,9 +89,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="En-tête">
-    <a href="." title="Au vieux codeur" class="md-header__button md-logo" aria-label="Au vieux codeur" data-md-component="logo">
+    <a href=".." title="Au vieux codeur" class="md-header__button md-logo" aria-label="Au vieux codeur" data-md-component="logo">
       
-  <img src="img/vieuxcodeuricon.png" alt="logo">
+  <img src="../img/vieuxcodeuricon.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -105,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home assistant
+              Notification de connexion
             
           </span>
         </div>
@@ -204,9 +206,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Au vieux codeur" class="md-nav__button md-logo" aria-label="Au vieux codeur" data-md-component="logo">
+    <a href=".." title="Au vieux codeur" class="md-nav__button md-logo" aria-label="Au vieux codeur" data-md-component="logo">
       
-  <img src="img/vieuxcodeuricon.png" alt="logo">
+  <img src="../img/vieuxcodeuricon.png" alt="logo">
 
     </a>
     Au vieux codeur
@@ -232,6 +234,36 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home assistant
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-reveil/" class="md-nav__link">
+        Réveil
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -244,12 +276,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Home assistant
+          Notification de connexion
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="." class="md-nav__link md-nav__link--active">
-        Home assistant
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Notification de connexion
       </a>
       
         
@@ -268,16 +300,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#automatisations" class="md-nav__link">
-    Automatisations
+  <a href="#materiel-utilise" class="md-nav__link">
+    Matériel utilisé
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mes-sources-dinspiration" class="md-nav__link">
-    Mes sources d'inspiration
+  <a href="#mise-en-oeuvre" class="md-nav__link">
+    Mise en oeuvre
   </a>
+  
+    <nav class="md-nav" aria-label="Mise en oeuvre">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sshrc" class="md-nav__link">
+    sshrc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traitement-du-webhook" class="md-nav__link">
+    Traitement du WEBHOOK
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -297,37 +349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="01-reveil/" class="md-nav__link">
-        Réveil
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="02-ssh-login-notification/" class="md-nav__link">
-        Notification de connexion
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="03-bonsai/" class="md-nav__link">
+      <a href="../03-bonsai/" class="md-nav__link">
         Arrosage
       </a>
     </li>
@@ -342,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="04-trajet/" class="md-nav__link">
+      <a href="../04-trajet/" class="md-nav__link">
         Trajet domicile/travail
       </a>
     </li>
@@ -357,7 +379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="05-tv/" class="md-nav__link">
+      <a href="../05-tv/" class="md-nav__link">
         TV non connectée
       </a>
     </li>
@@ -372,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="06-mode-nuit/" class="md-nav__link">
+      <a href="../06-mode-nuit/" class="md-nav__link">
         Mode nuit
       </a>
     </li>
@@ -387,7 +409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-chauffage/" class="md-nav__link">
+      <a href="../07-chauffage/" class="md-nav__link">
         Gestion du chauffage
       </a>
     </li>
@@ -421,16 +443,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#automatisations" class="md-nav__link">
-    Automatisations
+  <a href="#materiel-utilise" class="md-nav__link">
+    Matériel utilisé
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mes-sources-dinspiration" class="md-nav__link">
-    Mes sources d'inspiration
+  <a href="#mise-en-oeuvre" class="md-nav__link">
+    Mise en oeuvre
   </a>
+  
+    <nav class="md-nav" aria-label="Mise en oeuvre">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sshrc" class="md-nav__link">
+    sshrc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traitement-du-webhook" class="md-nav__link">
+    Traitement du WEBHOOK
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -452,33 +494,70 @@
   
 
 
-<h1 id="home-assistant">Home assistant</h1>
-<p><img alt="" src="img/vieuxcodeur.jpeg" style="height:150px;width:150px;float: left;margin-right: 1em" /></p>
-<p><a href="https://www.home-assistant.io/">Home Assistant</a> est un logiciel domotique open source que j'utilise afin de rendre ma maison "intelligente".</p>
-<p>Je vais vous présenter les principaux scénarios d'automatisation que j'utilise au quotidien.</p>
-<h2 id="automatisations">Automatisations</h2>
-<p>L'objectif est de mettre en place des actions automatiques en réponse à des événements survenant au sein de la maison.</p>
+<h1 id="notification-de-connexion">Notification de connexion</h1>
+<div class="admonition note">
+<p class="admonition-title">Objectif</p>
+<p>Envoyer une notification lors d'une connexion en ssh sur mon serveur NAS.</p>
+</div>
+<h2 id="materiel-utilise">Matériel utilisé</h2>
 <ul>
-<li><a href="01-reveil">Allumer des lumières au réveil</a></li>
-<li><a href="02-ssh-login-notification/">Notification de connexion</a></li>
-<li><a href="03-bonsai/">Rappel arrosage de mon bonsai</a></li>
-<li><a href="04-trajet/">Trajet domicile/travail</a></li>
-<li><a href="05-tv/">Télévision</a></li>
-<li><a href="06-mode-nuit/">Mode nuit</a></li>
-<li><a href="07-chauffage/">Gestion du chauffage</a></li>
+<li>1 serveur NAS permettant la connexion distante par ssh</li>
+<li>1 téléphone portable sur lequel est installée l'application mobile <a href="https://www.home-assistant.io/integrations/mobile_app/">Home assistant</a> pour recevoir la notification.</li>
 </ul>
-<h2 id="mes-sources-dinspiration">Mes sources d'inspiration</h2>
-<ul>
-<li><a href="https://github.com/thejeffreystone/home-assistant-configuration">The Anchorage House Home Assistant Configuration</a></li>
-<li><a href="https://isabellaalstrom.github.io/">Isabella Gross Alström Home Assistant Configuration</a></li>
-</ul>
+<h2 id="mise-en-oeuvre">Mise en oeuvre</h2>
+<p>Lors d'une connexion ssh les commandes présentes dans le fichier <em>/etc/ssh/sshrc</em> sont exécutées.
+En ajoutant les lignes de commandes suivantes il est possible d'appeler un WEBHOOK au niveau de Home Assistant.</p>
+<h3 id="sshrc">sshrc</h3>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="nv">ip</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SSH_CONNECTION</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot; &quot;</span><span class="w"> </span>-f<span class="w"> </span><span class="m">1</span><span class="k">)</span>
+<span class="nv">hs</span><span class="o">=</span><span class="k">$(</span>hostname<span class="k">)</span>
+
+<span class="nv">hostIP</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>ip<span class="w"> </span>address<span class="w"> </span>show<span class="w"> </span>dev<span class="w"> </span>eth0<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;inet &quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>--lines<span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>--delimiter<span class="o">=</span><span class="s1">&#39; &#39;</span><span class="w"> </span>--fields<span class="o">=</span><span class="m">6</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>--delimiter<span class="o">=</span><span class="s1">&#39;/&#39;</span><span class="w"> </span>--fields<span class="o">=</span><span class="m">1</span><span class="k">)</span><span class="s2">&quot;</span>
+
+logger<span class="w"> </span>-t<span class="w"> </span>ssh-wrapper<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2">&quot;</span><span class="w"> </span>login<span class="w"> </span>from<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ip</span><span class="s2">&quot;</span>
+
+curl<span class="w"> </span>--header<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--request<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--data<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span><span class="s1">&#39;{&quot;topic&quot;: &quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$hs</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;,</span>
+<span class="s1"> &quot;host&quot;: &quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$hs</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;,</span>
+<span class="s1"> &quot;hostIP&quot;: &quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$hostIP</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;,</span>
+<span class="s1"> &quot;user&quot;: &quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;,</span>
+<span class="s1"> &quot;from&quot;: &quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$ip</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;,</span>
+<span class="s1"> &quot;message&quot;: &quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2">@</span><span class="nv">$hs</span><span class="s2"> just logged in from </span><span class="nv">$ip</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>http://localhost:8123/api/webhook/MY-SSH-WEBHOOK
+</code></pre></div>
+<p>La dernière ligne doit être adaptée avec l'adresse de votre instance Home Assistant. Dans mon cas, elle est située sur la même machine.</p>
+<h3 id="traitement-du-webhook">Traitement du WEBHOOK</h3>
+<p>A la réception du WEBHOOK, le <em>sensor</em> ssh_login prend la valeur du message envoyé (bob@nas just logged in from 192.168.1.2 par exemple).</p>
+<p>Au changement de valeur du <em>sensor</em> ssh_login, le service de notification est appelé avec le message stocké sur le sensor.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">automation</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ssh_login_notify</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">notify nas ssh login</span>
+<span class="w">    </span><span class="nt">trigger</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">platform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">state</span>
+<span class="w">        </span><span class="nt">entity_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sensor.ssh_login</span>
+<span class="w">    </span><span class="nt">action</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">notify.mobile_app_pixel_2_xl</span>
+<span class="w">      </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">states.sensor.ssh_login.state</span><span class="nv"> </span><span class="s">}}&#39;</span>
+
+<span class="nt">template</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">platform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">webhook</span>
+<span class="w">        </span><span class="nt">webhook_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MY-SSH-WEBHOOK</span>
+<span class="w">    </span><span class="nt">sensor</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ssh_login&quot;</span>
+<span class="w">        </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">trigger.json.message</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Dernière mise à jour:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 26, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 15, 2021</span>
       
     
   </small>
@@ -532,10 +611,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.19047be9.min.js"></script>
+      <script src="../assets/javascripts/bundle.19047be9.min.js"></script>
       
     
   </body>

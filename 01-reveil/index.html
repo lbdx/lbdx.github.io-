@@ -8,25 +8,27 @@
       
       
       
-        <link rel="canonical" href="https://lbdx.github.io/">
+        <link rel="canonical" href="https://lbdx.github.io/01-reveil/">
       
       
+        <link rel="prev" href="..">
       
-        <link rel="next" href="01-reveil/">
       
-      <link rel="icon" href="img/vieuxcodeuricon.png">
+        <link rel="next" href="../02-ssh-login-notification/">
+      
+      <link rel="icon" href="../img/vieuxcodeuricon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
     
     
       
-        <title>Au vieux codeur</title>
+        <title>Réveil - Au vieux codeur</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.240905d7.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.240905d7.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -42,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -71,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#home-assistant" class="md-skip">
+        <a href="#reveil" class="md-skip">
           Aller au contenu
         </a>
       
@@ -87,9 +89,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="En-tête">
-    <a href="." title="Au vieux codeur" class="md-header__button md-logo" aria-label="Au vieux codeur" data-md-component="logo">
+    <a href=".." title="Au vieux codeur" class="md-header__button md-logo" aria-label="Au vieux codeur" data-md-component="logo">
       
-  <img src="img/vieuxcodeuricon.png" alt="logo">
+  <img src="../img/vieuxcodeuricon.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -105,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home assistant
+              Réveil
             
           </span>
         </div>
@@ -204,9 +206,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Au vieux codeur" class="md-nav__button md-logo" aria-label="Au vieux codeur" data-md-component="logo">
+    <a href=".." title="Au vieux codeur" class="md-nav__button md-logo" aria-label="Au vieux codeur" data-md-component="logo">
       
-  <img src="img/vieuxcodeuricon.png" alt="logo">
+  <img src="../img/vieuxcodeuricon.png" alt="logo">
 
     </a>
     Au vieux codeur
@@ -232,6 +234,21 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home assistant
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -244,12 +261,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Home assistant
+          Réveil
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="." class="md-nav__link md-nav__link--active">
-        Home assistant
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Réveil
       </a>
       
         
@@ -268,16 +285,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#automatisations" class="md-nav__link">
-    Automatisations
+  <a href="#materiel-utilise" class="md-nav__link">
+    Matériel utilisé
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mes-sources-dinspiration" class="md-nav__link">
-    Mes sources d'inspiration
+  <a href="#mise-en-oeuvre" class="md-nav__link">
+    Mise en oeuvre
   </a>
+  
+    <nav class="md-nav" aria-label="Mise en oeuvre">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#script-reveil" class="md-nav__link">
+    Script réveil
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automation" class="md-nav__link">
+    Automation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -297,22 +334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="01-reveil/" class="md-nav__link">
-        Réveil
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="02-ssh-login-notification/" class="md-nav__link">
+      <a href="../02-ssh-login-notification/" class="md-nav__link">
         Notification de connexion
       </a>
     </li>
@@ -327,7 +349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="03-bonsai/" class="md-nav__link">
+      <a href="../03-bonsai/" class="md-nav__link">
         Arrosage
       </a>
     </li>
@@ -342,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="04-trajet/" class="md-nav__link">
+      <a href="../04-trajet/" class="md-nav__link">
         Trajet domicile/travail
       </a>
     </li>
@@ -357,7 +379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="05-tv/" class="md-nav__link">
+      <a href="../05-tv/" class="md-nav__link">
         TV non connectée
       </a>
     </li>
@@ -372,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="06-mode-nuit/" class="md-nav__link">
+      <a href="../06-mode-nuit/" class="md-nav__link">
         Mode nuit
       </a>
     </li>
@@ -387,7 +409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07-chauffage/" class="md-nav__link">
+      <a href="../07-chauffage/" class="md-nav__link">
         Gestion du chauffage
       </a>
     </li>
@@ -421,16 +443,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#automatisations" class="md-nav__link">
-    Automatisations
+  <a href="#materiel-utilise" class="md-nav__link">
+    Matériel utilisé
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mes-sources-dinspiration" class="md-nav__link">
-    Mes sources d'inspiration
+  <a href="#mise-en-oeuvre" class="md-nav__link">
+    Mise en oeuvre
   </a>
+  
+    <nav class="md-nav" aria-label="Mise en oeuvre">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#script-reveil" class="md-nav__link">
+    Script réveil
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automation" class="md-nav__link">
+    Automation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -452,33 +494,61 @@
   
 
 
-<h1 id="home-assistant">Home assistant</h1>
-<p><img alt="" src="img/vieuxcodeur.jpeg" style="height:150px;width:150px;float: left;margin-right: 1em" /></p>
-<p><a href="https://www.home-assistant.io/">Home Assistant</a> est un logiciel domotique open source que j'utilise afin de rendre ma maison "intelligente".</p>
-<p>Je vais vous présenter les principaux scénarios d'automatisation que j'utilise au quotidien.</p>
-<h2 id="automatisations">Automatisations</h2>
-<p>L'objectif est de mettre en place des actions automatiques en réponse à des événements survenant au sein de la maison.</p>
+<h1 id="reveil">Réveil</h1>
+<div class="admonition note">
+<p class="admonition-title">Objectif</p>
+<p>Allumer 2 lampes à l'heure du réveil.</p>
+</div>
+<h2 id="materiel-utilise">Matériel utilisé</h2>
 <ul>
-<li><a href="01-reveil">Allumer des lumières au réveil</a></li>
-<li><a href="02-ssh-login-notification/">Notification de connexion</a></li>
-<li><a href="03-bonsai/">Rappel arrosage de mon bonsai</a></li>
-<li><a href="04-trajet/">Trajet domicile/travail</a></li>
-<li><a href="05-tv/">Télévision</a></li>
-<li><a href="06-mode-nuit/">Mode nuit</a></li>
-<li><a href="07-chauffage/">Gestion du chauffage</a></li>
+<li>2 ampoules de marque Wiz positionnées dans le salon et la salle à manger</li>
+<li>1 téléphone portable sur lequel est installée l'application mobile <a href="https://www.home-assistant.io/integrations/mobile_app/">Home assistant</a> pour récupérer l'heure de la prochaine alarme (heure de réveil).</li>
 </ul>
-<h2 id="mes-sources-dinspiration">Mes sources d'inspiration</h2>
-<ul>
-<li><a href="https://github.com/thejeffreystone/home-assistant-configuration">The Anchorage House Home Assistant Configuration</a></li>
-<li><a href="https://isabellaalstrom.github.io/">Isabella Gross Alström Home Assistant Configuration</a></li>
-</ul>
+<h2 id="mise-en-oeuvre">Mise en oeuvre</h2>
+<p>Les ampoules de la marque Wiz peuvent être intégrées automatiquement dans Home Assistant avec l'intégration <a href="https://www.home-assistant.io/integrations/wiz/">Wiz</a>.</p>
+<h3 id="script-reveil">Script réveil</h3>
+<p>Permet d'allumer les ampoules et de régler puissance et température.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">scripts</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">reveil</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reveil</span>
+<span class="w">        </span><span class="nt">sequence</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">light.turn_on</span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">data</span><span class="p p-Indicator">:</span>
+<span class="w">              </span><span class="nt">brightness</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+<span class="w">              </span><span class="nt">color_temp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000000</span>
+<span class="w">          </span><span class="w w-Error">  </span><span class="nt">entity_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">light.salle_a_manger</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">light.turn_on</span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">data</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="w">            </span><span class="nt">entity_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">light.salon</span>
+<span class="w">        </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">single</span>
+<span class="w">        </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mdi:alarm</span>
+</code></pre></div>
+<h3 id="automation">Automation</h3>
+<p>L'automation se base sur l'heure  de la prochaine alarme remontée par l'application mobile  : 
+<em>sensor.pixel_2_xl_next_alarm</em>.</p>
+<p>Le script <em>reveil</em> est appelé quand l'heure de reveil est atteinte si le mode vacance n'a pas été activé.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">automation</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lumierereveil</span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">allumer lumières au réveil</span>
+<span class="w">    </span><span class="nt">trigger</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">platform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">template</span>
+<span class="w">        </span><span class="nt">value_template</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">         </span><span class="no">{{now().strftime(&quot;%a %h %d %H:%M %Z %Y&quot;) == (((state_attr(&#39;sensor.pixel_2_xl_next_alarm&#39;, &#39;Time in Milliseconds&#39;) | int / 1000) + 0*60 ) | timestamp_custom(&#39;%a %h %d %H:%M %Z %Y&#39;))}}</span>
+<span class="w">    </span><span class="nt">condition</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">state</span>
+<span class="w">        </span><span class="nt">entity_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">input_boolean.mode_vacance</span>
+<span class="w">        </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;off&#39;</span>
+
+<span class="w">    </span><span class="nt">action</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">script.reveil</span>
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Dernière mise à jour:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 26, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 14, 2022</span>
       
     
   </small>
@@ -532,10 +602,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.19047be9.min.js"></script>
+      <script src="../assets/javascripts/bundle.19047be9.min.js"></script>
       
     
   </body>
