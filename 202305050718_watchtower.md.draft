@@ -1,0 +1,40 @@
+# Mise à jour automatique de Home assistant
+
+![notes](https://unsplash.com/photos/cxoR55-bels/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjgzMjY0NTQw&force=true&w=640)
+
+!!! note
+
+    Objectif : Mettre à jour le container docker Home Assistant avec la dernière version publiée
+
+## Matériel utilisé
+
+Un serveur NAS hébergeant Home Assistant en utilisant des containers docker.
+
+xxxxxxxxxxx ajouter un lien vers un article sur le nas et la publication en https du HA (certificat, domaine, mqqt, ...)
+xxxxxxxxxxx
+
+## Mise en oeuvre
+
+J'ai choisi d'installer [Watchtower](https://containrrr.dev/watchtower/), sous la forme d'un container docker,  pour automatiser la mise à jour de `Home Assistant`.
+
+Le logiciel propose de nombreuses options, parmi lesquelles j'ai selectionné les suivantes:
+
+* WATCHTOWER_CLEANUP=true, permet de supprimer les anciennes versions de l'image docker qui ne sont plus utilisées. Cela permet de ne pas remplir son disque dur inutilement,
+* WATCHTOWER_LABEL_ENABLE=true, permet de mettre à jour uniquement les containers contenant le label `com.centurylinklabs.watchtower.enable=true`. , 
+* WATCHTOWER_RUN_ONCE=true, permet de lancer la montée de version à la demande. Le container se lance, fait ce qu'il doit faire, puis s'arrête.
+
+```yaml
+version: "3"
+services:
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_LABEL_ENABLE=true
+      - WATCHTOWER_RUN_ONCE=true
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+```
+.docker-compose  watchtower
