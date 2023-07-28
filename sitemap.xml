@@ -6,11 +6,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lbdx.github.io/202305050718_watchtower/</loc>
-         <lastmod>2023-07-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://lbdx.github.io/202305102057_nas/</loc>
          <lastmod>2023-07-28</lastmod>
          <changefreq>daily</changefreq>
@@ -61,7 +56,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lbdx.github.io/blog/2023/07/28/ne-pas-publier-de-donnees-par-inadvertance/</loc>
+         <lastmod>2023-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lbdx.github.io/blog/archive/2023/</loc>
+         <lastmod>2023-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lbdx.github.io/blog/category/image/</loc>
+         <lastmod>2023-07-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lbdx.github.io/blog/category/securite/</loc>
          <lastmod>2023-07-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
