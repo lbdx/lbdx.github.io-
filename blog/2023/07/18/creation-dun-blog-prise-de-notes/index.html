@@ -771,12 +771,12 @@
     <article class="md-content__inner md-typeset">
       
         
-  
+
   
   
 
-  
-  <h1 id="creation-dun-blog-prise-de-notes">Création d'un blog &amp; prise de notes</h1>
+
+<h1 id="creation-dun-blog-prise-de-notes">Création d'un blog &amp; prise de notes</h1>
 <p><img alt="notes" src="https://images.unsplash.com/1/work-station-straight-on-view.jpg?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80" /></p>
 <p>Développeur depuis plus de 30 ans, curieux et passionné de technologie, j'ai accumulé au fil du temps de nombreuses notes, bookmarks et autres listes d'articles à lire. Difficile de tout garder en mémoire et d'exploiter ces contenus.
 Pour remédier à cette accumulation de données, sur lesquelles je finis par ne plus revenir, j'ai décidé d'en faire la synthèse à travers ce blog.</p>
@@ -801,30 +801,76 @@ On obtient ainsi une boucle note -&gt; pratique -&gt; note, permettant d'approfo
 </li>
 <li>
 <p>Rédaction</p>
-<p>La dernière étape est la rédaction de l'article pour ce blog. Le sujet abordé pourra alors continuer à évoluer ou être remis en question à l'issue de votre lecture et des vos remarques. </p>
+<p>La dernière étape est la rédaction de l'article pour ce blog. Le sujet abordé pourra alors continuer à évoluer ou être remis en question à l'issue de votre lecture et des vos remarques.</p>
 </li>
 </ol>
 <p>Cet article (et par extension ce blog) est issu de ce processus. Le constat d'accumulation m'a amené à chercher comment prendre des notes de façons plus efficaces, ce qui m'a fait découvrir les concepts de <a href="https://fortelabs.co/blog/basboverview/">second brain</a> ou de <a href="https://fr.wikipedia.org/wiki/Zettelkasten">Zettelkasten</a> dont je me suis inspiré. La mise en pratique consiste dans l'écriture de ce billet. Vos retours et la gestion du blog, devraient rapidement permettre d'affiner le processus, puis de rédiger de nouvelle notes, qui à leur tour feront peut-être l'objet d'un nouvel article.
 Au niveau des outils j'utilise <code>vscode</code> pour l'édition, le plugin <code>Foam for VSCode</code>, et <code>github</code> pour le versioning.</p>
-  
-    <hr>
+
+  <hr>
 <div class="md-source-file">
   <small>
     
       Dernière mise à jour:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 18, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 28, 2023</span>
       
     
   </small>
 </div>
-  
-  
+
+
 
   
 
 
-  
-  
+<!---->
+  <h2 id="__comments">Commentaires</h2>
+  <!-- Insert generated snippet here -->
+<script src="https://giscus.app/client.js"
+        data-repo="lbdx/lbdx.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkzMjg4ODEzOQ=="
+        data-category="General"
+        data-category-id="DIC_kwDOAfXVS84CVWLJ"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="fr"
+        crossorigin="anonymous"
+        async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+<!---->
       
     </article>
   </div>
