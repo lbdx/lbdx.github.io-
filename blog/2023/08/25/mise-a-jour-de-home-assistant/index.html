@@ -12,13 +12,11 @@
         <meta name="author" content="Vieux Codeur">
       
       
-        <link rel="canonical" href="https://lbdx.github.io/blog/2023/07/28/ne-pas-publier-de-donnees-par-inadvertance/">
+        <link rel="canonical" href="https://lbdx.github.io/blog/2023/08/25/mise-a-jour-de-home-assistant/">
       
       
-        <link rel="prev" href="../../18/creation-dun-blog-prise-de-notes/">
+        <link rel="prev" href="../../../07/28/ne-pas-publier-de-donnees-par-inadvertance/">
       
-      
-        <link rel="next" href="../../../08/25/mise-a-jour-de-home-assistant/">
       
       
       <link rel="icon" href="../../../../../img/vieuxcodeuricon16.png">
@@ -26,7 +24,7 @@
     
     
       
-        <title>Ne pas publier de données par inadvertance - Au vieux codeur - Domotique avec Home Assistant</title>
+        <title>Mise à jour de Home assistant - Au vieux codeur - Domotique avec Home Assistant</title>
       
     
     
@@ -60,11 +58,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Ne pas publier de données par inadvertance - Au vieux codeur - Domotique avec Home Assistant" >
+        <meta  property="og:title"  content="Mise à jour de Home assistant - Au vieux codeur - Domotique avec Home Assistant" >
       
         <meta  property="og:description"  content="Projets domotiques et exemples de code basés sur le logiciel opensource Home Assistant" >
       
-        <meta  property="og:image"  content="https://lbdx.github.io/assets/images/social/blog/posts/image-securite.png" >
+        <meta  property="og:image"  content="https://lbdx.github.io/assets/images/social/blog/posts/202305050718_watchtower.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -72,15 +70,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://lbdx.github.io/blog/2023/07/28/ne-pas-publier-de-donnees-par-inadvertance/" >
+        <meta  property="og:url"  content="https://lbdx.github.io/blog/2023/08/25/mise-a-jour-de-home-assistant/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Ne pas publier de données par inadvertance - Au vieux codeur - Domotique avec Home Assistant" >
+        <meta  name="twitter:title"  content="Mise à jour de Home assistant - Au vieux codeur - Domotique avec Home Assistant" >
       
         <meta  name="twitter:description"  content="Projets domotiques et exemples de code basés sur le logiciel opensource Home Assistant" >
       
-        <meta  name="twitter:image"  content="https://lbdx.github.io/assets/images/social/blog/posts/image-securite.png" >
+        <meta  name="twitter:image"  content="https://lbdx.github.io/assets/images/social/blog/posts/202305050718_watchtower.png" >
       
     
     
@@ -106,7 +104,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ne-pas-publier-de-donnees-par-inadvertance" class="md-skip">
+        <a href="#mise-a-jour-de-home-assistant" class="md-skip">
           Aller au contenu
         </a>
       
@@ -141,7 +139,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ne pas publier de données par inadvertance
+              Mise à jour de Home assistant
             
           </span>
         </div>
@@ -792,16 +790,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#risques" class="md-nav__link">
-    Risques
+  <a href="#materiel-utilise" class="md-nav__link">
+    Matériel utilisé
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#solution" class="md-nav__link">
-    Solution
+  <a href="#mise-en-oeuvre" class="md-nav__link">
+    Mise en oeuvre
   </a>
+  
+    <nav class="md-nav" aria-label="Mise en oeuvre">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-home-assistant" class="md-nav__link">
+    Configuration Home Assistant
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration Home Assistant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ajout-du-label-au-container-docker-pour-quil-soit-pris-en-compte-par-watchtower" class="md-nav__link">
+    Ajout du label au container docker pour qu'il soit pris en compte par Watchtower.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#declenchement-manuel-de-la-mise-a-jour" class="md-nav__link">
+    Déclenchement manuel de la mise à jour
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -841,7 +872,7 @@
               <li class="md-nav__item">
                 <div class="md-nav__link">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
-                  <time datetime="2023-07-28 00:00:00" class="md-ellipsis">28 juillet 2023</time>
+                  <time datetime="2023-08-25 00:00:00" class="md-ellipsis">25 août 2023</time>
                 </div>
               </li>
               
@@ -851,7 +882,8 @@
                     <span class="md-ellipsis">
                       dans
                       
-                        <a href="../../../../category/image/">Image</a>, 
+                        <a href="../../../../category/home-assistant/">Home assistant</a>, 
+                        <a href="../../../../category/docker/">Docker</a>, 
                         <a href="../../../../category/securite/">Sécurité</a></span>
                   </div>
                 </li>
@@ -863,7 +895,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
                     <span class="md-ellipsis">
                       
-                        2 min lues
+                        3 min lues
                       
                     </span>
                   </div>
@@ -883,44 +915,102 @@
   
 
 
-<h1 id="ne-pas-publier-de-donnees-par-inadvertance">Ne pas publier de données par inadvertance</h1>
-<p><img alt="notes" src="../../../../assets/img/image-securite.jpg" /></p>
-<p>Les pages de mon dashbord Home Assistant sont souvent illustrées par une image. Cela peut être la photo d'une pièce, comme le salon, ou bien d'un <a href="../../../../../automatisations/03-bonsai/">bansai</a>.</p>
-<p>La plupart ont été prises avec un mobile et comportent par défaut des informations supplémentaires concernant la prise de vue, l'appareil utilisé ou la localisation GPS.</p>
-<p>Dans un soucis de sécurité (prudence), il est nécessaire de supprimer ces données qui n'ont pas d'intérêt pour illustrer les articles de ce blog.</p>
+<h1 id="mise-a-jour-de-home-assistant">Mise à jour de Home assistant</h1>
+<p><img alt="notes" src="https://unsplash.com/photos/cxoR55-bels/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjgzMjY0NTQw&amp;force=true&amp;w=640" /></p>
+<p>J'utilise une version <code>Container</code> de Home Assistant, qui contrairement à la version <code>Operating System</code> ne permet pas de faire de mise à jour via son IHM. <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p><a href="https://containrrr.dev/watchtower/">Watchtower</a> est l'outil qui me permet de recréer le container docker Home Assistant avec la dernière version publiée.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Maintenir l'application à jour  permet de bénéficier de nouvelles fonctionnalités, mais aussi de corrections d'anomalies ou de failles de sécurité.</p>
+</div>
 <!-- more -->
 
-<h2 id="risques">Risques</h2>
-<p>Les metadatas inclus dans les images peuvent être utilisées pour obtenir des informations sur l'auteur, que ce dernier ne souhaite pas partager.
-Cela peut être par exemple :</p>
+<h2 id="materiel-utilise">Matériel utilisé</h2>
+<p>Un serveur hébergeant Home Assistant en utilisant des containers docker.</p>
+<p>Pour plus de détails, voir ma <a href="../../../../../202305102057_nas/">configuration</a>.</p>
+<h2 id="mise-en-oeuvre">Mise en oeuvre</h2>
+<p>J'ai choisi d'installer <a href="https://containrrr.dev/watchtower/">Watchtower</a>, sous la forme d'un container docker,  pour automatiser la mise à jour de <code>Home Assistant</code>.</p>
+<p>Le logiciel propose de nombreuses options, parmi lesquelles j'ai sélectionné les suivantes:</p>
 <ul>
-<li>la localisation de la prise de vue (adresse du domicile par exemple),</li>
-<li>son nom et prénom,</li>
-<li>le matériel utilisé (modèle du téléphone, version de l'os),</li>
-<li>la date et l'heure de la prise de vue.</li>
+<li>WATCHTOWER_CLEANUP=true, permet de supprimer les anciennes versions de l'image docker qui ne sont plus utilisées. Cela permet de ne pas remplir son disque dur inutilement,</li>
+<li>WATCHTOWER_LABEL_ENABLE=true, permet de mettre à jour uniquement les containers contenant le label <code>com.centurylinklabs.watchtower.enable=true</code>,</li>
+<li>WATCHTOWER_RUN_ONCE=true, permet de lancer la montée de version à la demande. Le container se lance, fait ce qu'il doit faire, puis s'arrête.</li>
 </ul>
-<p>Ces données pourraient être utilisées par des personnes malveillantes (cambriolage, hacking, usurpation d'identité).</p>
-<h2 id="solution">Solution</h2>
-<p>Pour y remédier, il existe un outil simple en ligne de commande <a href="https://packages.debian.org/bookworm/mat2">mat2</a>.</p>
-<p><code>mat2</code> permet de lister les metadatas d'une image :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mat2<span class="w"> </span>-s<span class="w"> </span>bonsai.jpg<span class="w">       </span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Metadata<span class="w"> </span><span class="k">for</span><span class="w"> </span>bonsai.jpg:
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span>Aperture:<span class="w"> </span><span class="m">1</span>.8
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span>ApertureValue:<span class="w"> </span><span class="m">1</span>.8
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span>BlueMatrixColumn:<span class="w"> </span><span class="m">0</span>.14305<span class="w"> </span><span class="m">0</span>.06061<span class="w"> </span><span class="m">0</span>.71391
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span>BlueTRC:<span class="w"> </span><span class="o">(</span>Binary<span class="w"> </span>data<span class="w"> </span><span class="m">32</span><span class="w"> </span>bytes,<span class="w"> </span>use<span class="w"> </span>-b<span class="w"> </span>option<span class="w"> </span>to<span class="w"> </span>extract<span class="o">)</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span>BrightnessValue:<span class="w"> </span><span class="m">1</span>.54
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">watchtower</span><span class="p">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">containrrr/watchtower</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WATCHTOWER_CLEANUP=true</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WATCHTOWER_LABEL_ENABLE=true</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WATCHTOWER_RUN_ONCE=true</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;com.centurylinklabs.watchtower.enable=true&quot;</span>
 </span></code></pre></div>
-<p>puis de les supprimer :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mat2<span class="w"> </span>--inplace<span class="w"> </span>bonsai.jpg
+<h3 id="configuration-home-assistant">Configuration Home Assistant</h3>
+<h4 id="ajout-du-label-au-container-docker-pour-quil-soit-pris-en-compte-par-watchtower">Ajout du label au container docker pour qu'il soit pris en compte par <code>Watchtower</code>.</h4>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">home-assistant</span><span class="p">:</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/home-assistant/home-assistant:stable</span><span class="w"> </span><span class="c1">#(1)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">com.centurylinklabs.watchtower.enable=true</span><span class="w"> </span><span class="c1">#(2)</span>
 </span></code></pre></div>
+<ol>
+<li>La version est <code>stable</code>, c'est à dire la dernière version taguée stable, mais elle n'est récupérée que lors de la création initiale du container. Les mises à jour ultérieures seront faite par <code>Watchtower</code>.</li>
+<li>Indique à <code>Watchtower</code> qu'il doit gérer les mises à jour de ce container.</li>
+</ol>
+<h4 id="declenchement-manuel-de-la-mise-a-jour">Déclenchement manuel de la mise à jour</h4>
+<p>Pour des raisons pratiques, je souhaite choisir le moment de la mise à jour (éviter par exemple une veille de départ en WE).</p>
+<p>J'ai pour cela ajouté un bouton au dashbord <code>Home Assistant</code> :</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">entities</span><span class="p">:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">entity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">switch.mqtt</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">entity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">switch.duckdns</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">entity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">switch.traefik</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">entity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">switch.watchtower</span><span class="w"> </span><span class="c1">#(1)</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mdi:radio-tower</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">secondary_info</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nt">show_header_toggle</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Docker Containers</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">entities</span>
+</span></code></pre></div>
+<ol>
+<li>Le switch permet de contrôler un container docker exposé grâce à <a href="https://github.com/philhawthorne/ha-dockermon">ha-dockermon</a></li>
+</ol>
+<p>Ce qui permet d'obtenir ce rendu :</p>
+<p><img alt="Contrôle des containers docker" src="../../../../assets/img/watchtower.png" /></p>
+<p>Par défaut <code>watchtower</code> est arrêté. Le bouton permet de démarrer l'instance et d'appliquer les mises à jour en attente.</p>
+<p>Celle de <code>Home Assistant</code> est également visible au niveau de mon dashbord :</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">entity-filter</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">entities</span><span class="p">:</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">entity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sensor.docker_hub</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">entity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sensor.installed_version</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">entity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">binary_sensor.docker_hub_update_available</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nt">state_filter</span><span class="p">:</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;==&#39;</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;on&#39;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="nt">show_empty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="nt">card</span><span class="p">:</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">glance</span>
+</span></code></pre></div>
+<p>Ce qui permet d'obtenir ce rendu :</p>
+<p><img alt="Indicateur de mise à jour" src="../../../../assets/img/update-ha.png" /></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://www.home-assistant.io/installation/#compare-installation-methods">Méthodes d'installation HA</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Dernière mise à jour:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 28, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 25, 2023</span>
       
     
   </small>
