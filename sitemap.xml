@@ -71,17 +71,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lbdx.github.io/blog/category/docker/</loc>
-         <lastmod>2023-08-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://lbdx.github.io/blog/category/securite/</loc>
          <lastmod>2023-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lbdx.github.io/blog/category/home-assistant/</loc>
+         <lastmod>2023-08-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lbdx.github.io/blog/category/docker/</loc>
          <lastmod>2023-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
