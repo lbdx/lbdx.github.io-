@@ -1,0 +1,164 @@
+---
+draft: true 
+
+date: 2023-09-25
+categories:
+  - Homelab
+  - Home assistant
+
+comments: true
+---
+
+# Création d'un Homelab
+
+![Homelab](img/homelab.jpg)
+
+A la suite de la perte du serveur sur lequel s'exécutait mon installation [Home assistant](../../202305102057_nas.md), j'ai choisi d'acquérir une machine plus puissante me permettant également de créer un Homelab.
+J'ai opté pour un micropc [Beelink Mini S12 Pro](https://www.bee-link.com/beelink-mini-s12-pro-n100-mini-pc-clone-1?sscid=51k7_0&), dont le prix était raisonnable, avec un processeur N100, 16Go de mémoire et 500Go de SSD.
+
+!!! info
+    Un Homelab est un ensemble de matériels informatiques personnels avec lesquels on peut se former, expérimenter et déployer ses projets et services personnels.
+
+Cette nouvelle machine a pour objectif d'héberger Home assistant en reprenant la configuration existante à partir d'une sauvegarde, mais aussi me permettre d'installer d'autres produits afin de satisfaire ma curiosité et de parfaire mon expertise technique sans risque.
+
+<!-- more -->
+
+## Choix de l'OS
+
+Mon choix c'est porté sur la solution de virtualisation [Proxmox](https://www.proxmox.com/en/proxmox-virtual-environment/overview) qui me permet de créer et détruire des machines virtuelles au grès de mes expérimentations.
+
+## Restauration Home assistant
+
+### Création d'une machine virtuelle
+
+La nouvelle machine a les caractéristiques suivantes et a comme système d'exploitation Ubuntu serveur en version LTS.
+
+![vm](img/vm-ha.png)
+
+### Installation des services requis
+
+Ma configuration repose sur l'utilisation de [docker](https://docs.docker.com/engine/install/ubuntu/) et de [portainer](https://docs.portainer.io/start/install-ce/server/docker/linux).
+
+Pour faciliter la mise à jour de portainer, j'ai utilisé un fichier `docker-compose.yml` :
+
+```yaml
+version: "3"
+
+services:
+
+  portainer:
+    container_name: portainer
+    hostname: portainer
+    image: portainer/portainer-ce:latest
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:9443:9443
+      - 127.0.0.1:9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  # required for API access
+      - /etc/localtime:/etc/localtime:ro
+      - ./data:/data
+```
+
+La mise à jour consiste à exécuter les 2 commandes suivantes :
+
+```bash
+docker pull portainer/portainer-ce:latest
+docker-compose up -d
+```
+
+### Restauration de la stack Home assistant dans portainer
+
+Portainer permet de faire une [sauvegarde de sa configuration](https://docs.portainer.io/admin/settings#backup-to-local-disk).
+Cela permet de télécharger en local un fichier qui peut ensuite servir à restaurer notre configuration.
+C'est cette fonctionnalité que j'utilise et qui me permet de [récupérer mes données](https://docs.portainer.io/admin/settings#restoring-from-a-local-file).
+
+Une fois les containers recréés, l'application Home Assistant est de nouveau disponible, mais vierge.
+Comme pour portainer, Home Assistant permet de faire des [sauvegardes](https://www.home-assistant.io/integrations/backup/).
+
+```yaml
+automation:
+  - id:  backup
+    alias: "sauvegarde HA"
+    trigger:
+    - platform: time
+      at: "23:00:00"
+    action:
+      alias: "Création d'un backup"
+      service: backup.create
+```
+
+Cela ajoute des sauvegardes au format **tar** dans le répertoire backups, tous les soir à 23h.
+
+C'est un de ces fichiers préalablement sauvegardés sur une autre machine que j'ai récupéré et restauré dans le répertoire **config** (via la commande tar).
+
+Home assistant est de nouveau fonctionnel.
+
+## Mise en place de sauvegardes
+
+Cet incident montre l'importance d'avoir des sauvegardes.
+Pour cette nouvelle installation, elles seront de 2 types :
+
+* sauvegarde de machines virtuelles avec Proxmox et Proxmox Backup Server,
+* sauvegarde vers dropbox des backups réalisés par Home Assistant.
+
+### Proxmox Backup Server
+
+[Proxmox Backup Server](https://www.proxmox.com/en/proxmox-backup-server/overview) est un système exploitation et un outil de sauvegarde pour Proxmox. 
+Je l'ai installé sur un vieux PC de bureau (cpu peu puissant et 4Go de mémoire vive) auqel j'ai ajouté un disque de 2To récupéré de mon ancien serveur.
+Je l'allume une fois par semaine et il s'eteint tout seul en fin de journée. Cela est suffisant pour avoir des sauvegardes régulières pour mon usage personnel.
+
+J'ai créé une tache de sauvegarde, sur mon serveur proxmox, qui fait un backup d'une liste de VM toutes les 2 heures. 
+Quand le serveur de sauvegarde est éteint, la tache est en erreur.
+
+![tache de sauvegarde](img/backup-pbs.png)
+
+En cas de perte du serveur proxmox, chaque VM aura des sauvegardes sur le serveur Proxmox Backup Server.
+
+### Dropbox
+
+En plus de la sauvegarde complète de la VM Home Assisant, je souhaitais avoir des sauvegardes de la base de donnée Home assisant sur une machine distante, ici Dropbox.
+
+Ces sauvegardes sont réalisées avec un outil gratuit, [Duplicaty](https://www.duplicati.com/), installé sous forme de container docker. Cet outil permet nativement la sauvegarde vers Dropbox.
+
+### Installation de duplicaty
+
+```yaml
+---
+version: "2.1"
+services:
+  duplicati:
+    image: lscr.io/linuxserver/duplicati:latest
+    container_name: duplicati
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      - CLI_ARGS= #optional
+    volumes:
+      - /home/vieuxcodeur/docker/duplicati/config:/config
+      - /home/vieuxcodeur/docker/duplicati/backups:/backups
+      - /home/vieuxcodeur/docker:/source
+    ports:
+      - 127.0.0.1:8200:8200
+    restart: unless-stopped
+```
+
+Le dernier volume, `source`, correspond au répertoire contenant les fichiers de l'application Home Assistant sur mon serveur, dont les fichiers de [sauvegarde](https://www.home-assistant.io/integrations/backup/) fait par l'application.
+
+L'application web `duplicaty` est alors exposée sur le port `8200`. Il ne reste qu'a créé un tache récurrente pour sauvegarder le répertoire backup de Home Assisant vers Dropbox.
+
+### Ajout d'une tache de sauvegarde planifiée
+
+![duplicaty paramétrage écran 1](img/duplicaty1.png)
+
+![duplicaty paramétrage écran 2](img/duplicaty2.png)
+
+![duplicaty paramétrage écran 3](img/duplicaty3.png)
+
+![duplicaty paramétrage écran 4](img/duplicaty4.png)
+
+![duplicaty paramétrage écran 4](img/duplicaty5.png)
+
+Les données essentielles sont maintenant sauvegardées.
+

@@ -12,11 +12,11 @@
         <meta name="author" content="Vieux Codeur">
       
       
-        <link rel="canonical" href="https://lbdx.github.io/blog/2023/07/18/creation-dun-blog-prise-de-notes/">
+        <link rel="canonical" href="https://lbdx.github.io/blog/2023/09/23/creation-dun-homelab/">
       
       
+        <link rel="prev" href="../../../08/25/mise-a-jour-de-home-assistant/">
       
-        <link rel="next" href="../../28/ne-pas-publier-de-donnees-par-inadvertance/">
       
       
       <link rel="icon" href="../../../../../img/vieuxcodeuricon16.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Création d'un blog & prise de notes - Au vieux codeur - Domotique avec Home Assistant</title>
+        <title>Création d'un Homelab - Au vieux codeur - Domotique avec Home Assistant</title>
       
     
     
@@ -59,11 +59,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Création d'un blog & prise de notes - Au vieux codeur - Domotique avec Home Assistant" >
+        <meta  property="og:title"  content="Création d'un Homelab - Au vieux codeur - Domotique avec Home Assistant" >
       
         <meta  property="og:description"  content="Projets domotiques et exemples de code basés sur le logiciel opensource Home Assistant" >
       
-        <meta  property="og:image"  content="https://lbdx.github.io/assets/images/social/blog/posts/202307081521_notes.png" >
+        <meta  property="og:image"  content="https://lbdx.github.io/assets/images/social/blog/posts/20230826_homelab.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -71,15 +71,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://lbdx.github.io/blog/2023/07/18/creation-dun-blog-prise-de-notes/" >
+        <meta  property="og:url"  content="https://lbdx.github.io/blog/2023/09/23/creation-dun-homelab/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Création d'un blog & prise de notes - Au vieux codeur - Domotique avec Home Assistant" >
+        <meta  name="twitter:title"  content="Création d'un Homelab - Au vieux codeur - Domotique avec Home Assistant" >
       
         <meta  name="twitter:description"  content="Projets domotiques et exemples de code basés sur le logiciel opensource Home Assistant" >
       
-        <meta  name="twitter:image"  content="https://lbdx.github.io/assets/images/social/blog/posts/202307081521_notes.png" >
+        <meta  name="twitter:image"  content="https://lbdx.github.io/assets/images/social/blog/posts/20230826_homelab.png" >
       
     
     
@@ -105,7 +105,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#creation-dun-blog-prise-de-notes" class="md-skip">
+        <a href="#creation-dun-homelab" class="md-skip">
           Aller au contenu
         </a>
       
@@ -140,7 +140,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Création d'un blog & prise de notes
+              Création d'un Homelab
             
           </span>
         </div>
@@ -804,6 +804,96 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#choix-de-los" class="md-nav__link">
+    Choix de l'OS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restauration-home-assistant" class="md-nav__link">
+    Restauration Home assistant
+  </a>
+  
+    <nav class="md-nav" aria-label="Restauration Home assistant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creation-dune-machine-virtuelle" class="md-nav__link">
+    Création d'une machine virtuelle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-des-services-requis" class="md-nav__link">
+    Installation des services requis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restauration-de-la-stack-home-assistant-dans-portainer" class="md-nav__link">
+    Restauration de la stack Home assistant dans portainer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mise-en-place-de-sauvegardes" class="md-nav__link">
+    Mise en place de sauvegardes
+  </a>
+  
+    <nav class="md-nav" aria-label="Mise en place de sauvegardes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proxmox-backup-server" class="md-nav__link">
+    Proxmox Backup Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dropbox" class="md-nav__link">
+    Dropbox
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-de-duplicaty" class="md-nav__link">
+    Installation de duplicaty
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ajout-dune-tache-de-sauvegarde-planifiee" class="md-nav__link">
+    Ajout d'une tache de sauvegarde planifiée
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -838,7 +928,7 @@
               <li class="md-nav__item">
                 <div class="md-nav__link">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
-                  <time datetime="2023-07-18 00:00:00" class="md-ellipsis">18 juillet 2023</time>
+                  <time datetime="2023-09-23 00:00:00" class="md-ellipsis">23 septembre 2023</time>
                 </div>
               </li>
               
@@ -849,7 +939,8 @@
                     <span class="md-ellipsis">
                       dans
                       
-                        <a href="../../../../category/second-brain/">Second brain</a></span>
+                        <a href="../../../../category/homelab/">Homelab</a>, 
+                        <a href="../../../../category/home-assistant/">Home assistant</a></span>
                   </div>
                 </li>
               
@@ -860,7 +951,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
                     <span class="md-ellipsis">
                       
-                        3 min de lecture
+                        5 min de lecture
                       
                     </span>
                   </div>
@@ -880,43 +971,120 @@
   
 
 
-<h1 id="creation-dun-blog-prise-de-notes">Création d'un blog &amp; prise de notes</h1>
-<p><img alt="notes" src="https://images.unsplash.com/1/work-station-straight-on-view.jpg?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80" /></p>
-<p>Développeur depuis plus de 30 ans, curieux et passionné de technologie, j'ai accumulé au fil du temps de nombreuses notes, bookmarks et autres listes d'articles à lire. Difficile de tout garder en mémoire et d'exploiter ces contenus.
-Pour remédier à cette accumulation de données, sur lesquelles je finis par ne plus revenir, j'ai décidé d'en faire la synthèse à travers ce blog.</p>
+<h1 id="creation-dun-homelab">Création d'un Homelab</h1>
+<p><img alt="Homelab" src="../../../../img/homelab.jpg" /></p>
+<p>A la suite de la perte du serveur sur lequel s'exécutait mon installation <a href="../../../../../202305102057_nas/">Home assistant</a>, j'ai choisi d'acquérir une machine plus puissante me permettant également de créer un Homelab.
+J'ai opté pour un micropc <a href="https://www.bee-link.com/beelink-mini-s12-pro-n100-mini-pc-clone-1?sscid=51k7_0&amp;">Beelink Mini S12 Pro</a>, dont le prix était raisonnable, avec un processeur N100, 16Go de mémoire et 500Go de SSD.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Un Homelab est un ensemble de matériels informatiques personnels avec lesquels on peut se former, expérimenter et déployer ses projets et services personnels.</p>
+</div>
+<p>Cette nouvelle machine a pour objectif d'héberger Home assistant en reprenant la configuration existante à partir d'une sauvegarde, mais aussi me permettre d'installer d'autres produits afin de satisfaire ma curiosité et de parfaire mon expertise technique sans risque.</p>
 <!-- more -->
 
-<p>Pour cela, j'ai mis en place un système de <strong>prise de note en 4 étapes</strong> :</p>
-<ol>
-<li>
-<p>Récupération</p>
-<p>La première étape de ce processus est de récupérer les articles et idées éparpillées dans de nombreux outils (evernote, google keep, Joplin, pocket, boites mails), puis de les regrouper au même endroit dans un format simple et durable dans le temps. Pour ce faire, j'ai opté pour du markdown, éditable par de nombreux outils et pouvant être versionné, comme cela est fait pour du code applicatif. Autre avantage, ce format est directement visualisable sous <em>Github</em> ou <em>Gitlab</em>.</p>
-</li>
-<li>
-<p>Parcours</p>
-<p>Le parcours consiste à revisiter les notes et idées saisies précédemment, à les lier entre elles (lien markdown) et de leur ajouter des mots clés (ou tags). Cela permet ensuite de faire des recherches <em>fulltext</em> autour d'une notion et d'identifier l'ensemble des notes concernées.
-Quand une note n'est encore qu'une référence (contenu brut issu de la réflexion d'un autre), un passage dans un livre ou un article de blog par exemple, il faut alors en faire la synthèse avec ses propres mots. Cela permet de s'approprier le sujet et constitue un premier apprentissage.</p>
-</li>
-<li>
-<p>Pratique</p>
-<p>La pratique consiste à mettre en œuvre une idée, un concept ou un outil, dans un projet. Il n'est pas conseillé, dans le cadre professionnel, d'introduire un nouveau sujet dans l'unique but d'apprendre mais plutôt pour répondre à un besoin. Par contre, tout est permis dans un projet personnel.
-A l'issue de cette phase concrète, de nouvelles idées vont venir compléter celle de départ et faire l'objet de nouvelles notes.
-On obtient ainsi une boucle note -&gt; pratique -&gt; note, permettant d'approfondir un sujet petit à petit, sans trop d'effort, jusqu’à obtenir une connaissance solide dans un domaine.</p>
-</li>
-<li>
-<p>Rédaction</p>
-<p>La dernière étape est la rédaction de l'article pour ce blog. Le sujet abordé pourra alors continuer à évoluer ou être remis en question à l'issue de votre lecture et des vos remarques.</p>
-</li>
-</ol>
-<p>Cet article (et par extension ce blog) est issu de ce processus. Le constat d'accumulation m'a amené à chercher comment prendre des notes de façons plus efficaces, ce qui m'a fait découvrir les concepts de <a href="https://fortelabs.co/blog/basboverview/">second brain</a> ou de <a href="https://fr.wikipedia.org/wiki/Zettelkasten">Zettelkasten</a> dont je me suis inspiré. La mise en pratique consiste dans l'écriture de ce billet. Vos retours et la gestion du blog, devraient rapidement permettre d'affiner le processus, puis de rédiger de nouvelle notes, qui à leur tour feront peut-être l'objet d'un nouvel article.
-Au niveau des outils j'utilise <code>vscode</code> pour l'édition, le plugin <code>Foam for VSCode</code>, et <code>github</code> pour le versioning.</p>
+<h2 id="choix-de-los">Choix de l'OS</h2>
+<p>Mon choix c'est porté sur la solution de virtualisation <a href="https://www.proxmox.com/en/proxmox-virtual-environment/overview">Proxmox</a> qui me permet de créer et détruire des machines virtuelles au grès de mes expérimentations.</p>
+<h2 id="restauration-home-assistant">Restauration Home assistant</h2>
+<h3 id="creation-dune-machine-virtuelle">Création d'une machine virtuelle</h3>
+<p>La nouvelle machine a les caractéristiques suivantes et a comme système d'exploitation Ubuntu serveur en version LTS.</p>
+<p><img alt="vm" src="../../../../img/vm-ha.png" /></p>
+<h3 id="installation-des-services-requis">Installation des services requis</h3>
+<p>Ma configuration repose sur l'utilisation de <a href="https://docs.docker.com/engine/install/ubuntu/">docker</a> et de <a href="https://docs.portainer.io/start/install-ce/server/docker/linux">portainer</a>.</p>
+<p>Pour faciliter la mise à jour de portainer, j'ai utilisé un fichier <code>docker-compose.yml</code> :</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">portainer</span><span class="p">:</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">portainer</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">portainer</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">portainer/portainer-ce:latest</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1:9443:9443</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1:9000:9000</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span><span class="w">  </span><span class="c1"># required for API access</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/localtime:/etc/localtime:ro</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./data:/data</span>
+</span></code></pre></div>
+<p>La mise à jour consiste à exécuter les 2 commandes suivantes :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>portainer/portainer-ce:latest
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</span></code></pre></div>
+<h3 id="restauration-de-la-stack-home-assistant-dans-portainer">Restauration de la stack Home assistant dans portainer</h3>
+<p>Portainer permet de faire une <a href="https://docs.portainer.io/admin/settings#backup-to-local-disk">sauvegarde de sa configuration</a>.
+Cela permet de télécharger en local un fichier qui peut ensuite servir à restaurer notre configuration.
+C'est cette fonctionnalité que j'utilise et qui me permet de <a href="https://docs.portainer.io/admin/settings#restoring-from-a-local-file">récupérer mes données</a>.</p>
+<p>Une fois les containers recréés, l'application Home Assistant est de nouveau disponible, mais vierge.
+Comme pour portainer, Home Assistant permet de faire des <a href="https://www.home-assistant.io/integrations/backup/">sauvegardes</a>.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">automation</span><span class="p">:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">backup</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sauvegarde</span><span class="nv"> </span><span class="s">HA&quot;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">trigger</span><span class="p">:</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">platform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">time</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">at</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;23:00:00&quot;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">action</span><span class="p">:</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Création</span><span class="nv"> </span><span class="s">d&#39;un</span><span class="nv"> </span><span class="s">backup&quot;</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">      </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backup.create</span>
+</span></code></pre></div>
+<p>Cela ajoute des sauvegardes au format <strong>tar</strong> dans le répertoire backups, tous les soir à 23h.</p>
+<p>C'est un de ces fichiers préalablement sauvegardés sur une autre machine que j'ai récupéré et restauré dans le répertoire <strong>config</strong> (via la commande tar).</p>
+<p>Home assistant est de nouveau fonctionnel.</p>
+<h2 id="mise-en-place-de-sauvegardes">Mise en place de sauvegardes</h2>
+<p>Cet incident montre l'importance d'avoir des sauvegardes.
+Pour cette nouvelle installation, elles seront de 2 types :</p>
+<ul>
+<li>sauvegarde de machines virtuelles avec Proxmox et Proxmox Backup Server,</li>
+<li>sauvegarde vers dropbox des backups réalisés par Home Assistant.</li>
+</ul>
+<h3 id="proxmox-backup-server">Proxmox Backup Server</h3>
+<p><a href="https://www.proxmox.com/en/proxmox-backup-server/overview">Proxmox Backup Server</a> est un système exploitation et un outil de sauvegarde pour Proxmox. 
+Je l'ai installé sur un vieux PC de bureau (cpu peu puissant et 4Go de mémoire vive) auquel j'ai ajouté un disque de 2To récupéré de mon ancien serveur.
+Je l'allume une fois par semaine et il s'éteint tout seul en fin de journée. Cela est suffisant pour avoir des sauvegardes régulières pour mon usage personnel.</p>
+<p>J'ai créé une tache de sauvegarde, sur mon serveur proxmox, qui fait un backup d'une liste de VM toutes les 2 heures. 
+Quand le serveur de sauvegarde est éteint, la tache est en erreur.</p>
+<p><img alt="tache de sauvegarde" src="../../../../img/backup-pbs.png" /></p>
+<p>En cas de perte du serveur proxmox, chaque VM aura des sauvegardes sur le serveur Proxmox Backup Server.</p>
+<h3 id="dropbox">Dropbox</h3>
+<p>En plus de la sauvegarde complète de la VM Home Assisant, je souhaitais avoir des sauvegardes de la base de donnée Home assistant sur une machine distante, ici Dropbox.</p>
+<p>Ces sauvegardes sont réalisées avec un outil gratuit, <a href="https://www.duplicati.com/">Duplicaty</a>, installé sous forme de container docker. Cet outil permet nativement la sauvegarde vers Dropbox.</p>
+<h3 id="installation-de-duplicaty">Installation de duplicaty</h3>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nn">---</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2.1&quot;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">duplicati</span><span class="p">:</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lscr.io/linuxserver/duplicati:latest</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">duplicati</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PUID=1000</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PGID=1000</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TZ=Europe/Paris</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CLI_ARGS=</span><span class="w"> </span><span class="c1">#optional</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/home/vieuxcodeur/docker/duplicati/config:/config</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/home/vieuxcodeur/docker/duplicati/backups:/backups</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/home/vieuxcodeur/docker:/source</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1:8200:8200</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+</span></code></pre></div>
+<p>Le dernier volume, <code>source</code>, correspond au répertoire contenant les fichiers de l'application Home Assistant sur mon serveur, dont les fichiers de <a href="https://www.home-assistant.io/integrations/backup/">sauvegarde</a> fait par l'application.</p>
+<p>L'application web <code>duplicaty</code> est alors exposée sur le port <code>8200</code>. Il ne reste qu'a créé un tache récurrente pour sauvegarder le répertoire backup de Home Assistant vers Dropbox.</p>
+<h3 id="ajout-dune-tache-de-sauvegarde-planifiee">Ajout d'une tache de sauvegarde planifiée</h3>
+<p><img alt="duplicaty paramétrage écran 1" src="../../../../img/duplicaty1.png" /></p>
+<p><img alt="duplicaty paramétrage écran 2" src="../../../../img/duplicaty2.png" /></p>
+<p><img alt="duplicaty paramétrage écran 3" src="../../../../img/duplicaty3.png" /></p>
+<p><img alt="duplicaty paramétrage écran 4" src="../../../../img/duplicaty4.png" /></p>
+<p><img alt="duplicaty paramétrage écran 4" src="../../../../img/duplicaty5.png" /></p>
+<p>Les données essentielles sont maintenant sauvegardées.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Dernière mise à jour:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 28, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 23, 2023</span>
       
     
   </small>
