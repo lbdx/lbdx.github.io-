@@ -965,27 +965,13 @@
     <h2 id="srvstat-monitorer-ses-serveurs-avec-home-assistant"><a class="toclink" href="../../2024/09/30/srvstat--monitorer-ses-serveurs-avec-home-assistant/">SRVSTAT : Monitorer ses serveurs avec Home Assistant</a></h2>
 <h4 id="introduction"><a class="toclink" href="../../2024/09/30/srvstat--monitorer-ses-serveurs-avec-home-assistant/#introduction">Introduction</a></h4>
 <p><a href="https://github.com/lbdx/srvstat">Srvstat</a> est un petit outil, développé en Rust, qui permet de collecter des métriques système (CPU, mémoire, disque) et de les publier sur un serveur MQTT.</p>
-<h4 id="pourquoi-srvstat"><a class="toclink" href="../../2024/09/30/srvstat--monitorer-ses-serveurs-avec-home-assistant/#pourquoi-srvstat">Pourquoi srvstat ?</a></h4>
-<p>L'écriture de cet outil m'a permis de remplir 2 objectifs : </p>
-<ul>
-<li>Apprendre Rust par la pratique,</li>
-<li>Surveiller mon Homelab de manière centralisée.</li>
-</ul>
-<p>En publiant les métriques sur un serveur MQTT, srvstat permet de centraliser la collecte des données. Home Assistant, agissant comme un simple abonné, peut alors récupérer ces informations et les afficher dans ses dashboards.</p>
-<p>L'un des principaux avantages de cette architecture est de ne pas exposer directement les autres machines du réseau à Home Assistant (qui est exposé sur internet). En inversant la dépendance, on limite considérablement la surface d'attaque.</p>
-<h4 id="comment-ca-marche"><a class="toclink" href="../../2024/09/30/srvstat--monitorer-ses-serveurs-avec-home-assistant/#comment-ca-marche">Comment ça marche ?</a></h4>
-<p>srvstat fonctionne en trois étapes simples :</p>
-<ol>
-<li><strong>Collecte des métriques:</strong> L'application lit les informations système (CPU, mémoire, disque) directement sur la machine hôte.</li>
-<li><strong>Publication sur MQTT:</strong> Les données collectées sont ensuite publiées sur un serveur MQTT, sous forme de messages.</li>
-<li><strong>Consommation par Home Assistant:</strong> Home Assistant, configuré pour s'abonner aux topics MQTT correspondants, récupère les données et les affiche dans les entités et les cartes de votre choix.</li>
-</ol>
-<p>La dernière version pour linux est disponible à l'adresse suivante : <a href="https://github.com/lbdx/srvstat/releases">github srvstat</a>.</p>
-<p>Il peut être lancé comme un tache planifiée.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>* * * * * BROKER_URL=tcp://127.0.0.1:1883 /usr/local/bin/srvstat &gt; /dev/null  
-</span></code></pre></div>
-<h4 id="exemple-de-dashboard"><a class="toclink" href="../../2024/09/30/srvstat--monitorer-ses-serveurs-avec-home-assistant/#exemple-de-dashboard">Exemple de dashboard</a></h4>
-<p><img alt="Metic dashboard" src="../../img/metric-dashboard.png" /></p>
+
+    
+      <nav class="md-post__action">
+        <a href="../../2024/09/30/srvstat--monitorer-ses-serveurs-avec-home-assistant/">
+          Continuer à lire
+        </a>
+      </nav>
     
   </div>
 </article>
